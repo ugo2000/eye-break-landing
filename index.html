@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye & Body Break — Chrome Extension</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0d2b14 0%, #1a4a2c 50%, #0d2b14 100%);
+      color: white;
+      min-height: 100vh;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+    .icon { font-size: 80px; margin-bottom: 16px; }
+    h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -1px; }
+    .tagline { font-size: 20px; color: #a0d6a8; margin-bottom: 40px; }
+    .cta {
+      display: inline-block;
+      padding: 16px 48px;
+      background: #2dba57;
+      color: white;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cta:hover { background: #25a048; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(45,186,87,0.4); }
+    .features {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    .feature-icon { font-size: 40px; margin-bottom: 12px; }
+    .feature h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .feature p { font-size: 13px; color: #a0d6a8; line-height: 1.5; }
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 13px;
+      color: #6b9a72;
+    }
+    .footer a { color: #2dba57; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="icon">🌿</div>
+    <h1>Eye & Body Break</h1>
+    <p class="tagline">Hourly green screen breaks. Your eyes and body deserve better.</p>
+    <a href="https://chrome.google.com/webstore" class="cta">Coming Soon to Chrome Web Store</a>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">⏰</div>
+      <h3>Hourly Reminders</h3>
+      <p>Full-screen green overlay every 60 minutes. Force yourself to rest.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🧘</div>
+      <h3>5-Minute Routine</h3>
+      <p>Guided break: look at green, stand up, stretch, walk around.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎨</div>
+      <h3>3 Themes (Pro)</h3>
+      <p>Forest green, ocean blue, desert amber — pick your vibe.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📊</div>
+      <h3>Health Reports (Pro)</h3>
+      <p>Weekly summary of your break habits. Know when you're pushing too hard.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔔</div>
+      <h3>System Notifications</h3>
+      <p>Works even when no browser tab is open. No excuses.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <h3>Zero Data Collection</h3>
+      <p>Everything stays in your browser. We never see your data.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Eye & Body Break is built by <a href="https://www.zhuaotech.com.cn">Zhuao Tech</a></p>
+    <p><a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="mailto:support@zhuaotech.com.cn">Contact</a></p>
+  </div>
+</body>
+</html>

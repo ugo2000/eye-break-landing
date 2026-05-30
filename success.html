@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye & Body Break — License Activation</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f7faf8;
+      color: #1a2e1e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 36px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .success-icon {
+      font-size: 64px;
+      margin-bottom: 12px;
+    }
+    h1 { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+    .subtitle { font-size: 14px; color: #6b8a72; margin-bottom: 28px; }
+
+    .license-box {
+      background: #f7faf8;
+      border: 2px dashed #c8e0cd;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .license-label {
+      font-size: 11px; font-weight: 600;
+      color: #6b8a72; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .license-key {
+      font-size: 22px; font-weight: 700;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      color: #1a7a35;
+      word-break: break-all;
+    }
+    .copy-btn {
+      margin-top: 12px;
+      padding: 8px 24px;
+      border-radius: 8px;
+      border: 1.5px solid #2dba57;
+      background: white;
+      color: #2dba57;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .copy-btn:hover { background: #2dba57; color: white; }
+    .copy-btn.copied { background: #2dba57; color: white; }
+
+    .steps { text-align: left; margin-bottom: 24px; }
+    .steps h3 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .step {
+      display: flex; gap: 10px;
+      margin-bottom: 10px;
+      font-size: 13px; line-height: 1.5;
+    }
+    .step-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: #2dba57;
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .support {
+      font-size: 12px; color: #9ab09e;
+      margin-top: 20px;
+    }
+    .support a { color: #2dba57; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="success-icon">🎉</div>
+    <h1>Thank You for Going Pro!</h1>
+    <p class="subtitle">Your license key is ready. Activate it in the extension to unlock all Pro features.</p>
+
+    <div class="license-box">
+      <div class="license-label">Your License Key</div>
+      <div class="license-key" id="license-key">EYE-XXXX-XXXX-XXXX-XXXX</div>
+      <button class="copy-btn" id="copy-btn" onclick="copyLicense()">📋 Copy Key</button>
+    </div>
+
+    <div class="steps">
+      <h3>How to Activate</h3>
+      <div class="step">
+        <span class="step-num">1</span>
+        <span>Copy your license key above</span>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <span>Click the 🌿 icon in your Chrome toolbar to open Eye & Body Break</span>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <span>Click <strong>🔑 License</strong> and paste your key</span>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <span>Enjoy custom intervals, themes, and weekly reports!</span>
+      </div>
+    </div>
+
+    <div class="support">
+      Questions? <a href="mailto:support@zhuaotech.com.cn">Contact Support</a>
+    </div>
+  </div>
+
+  <script>
+    // Generate a valid key client-side using byte-level XOR
+    function generateKey() {
+      const PREFIX = "EYE";
+      const CHECKSUM = 0xA5;
+      const bytes = [];
+      let running = 0;
+      for (let i = 0; i < 7; i++) {
+        const b = Math.floor(Math.random() * 256);
+        bytes.push(b);
+        running ^= b;
+      }
+      bytes.push(running ^ CHECKSUM);
+      const hex = bytes.map((b) => b.toString(16).toUpperCase().padStart(2, "0")).join("");
+      return `${PREFIX}-${hex.slice(0,4)}-${hex.slice(4,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}`;
+    }
+
+    document.getElementById("license-key").textContent = generateKey();
+
+    function copyLicense() {
+      const key = document.getElementById("license-key").textContent;
+      navigator.clipboard.writeText(key).then(() => {
+        const btn = document.getElementById("copy-btn");
+        btn.textContent = "✓ Copied!";
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.textContent = "📋 Copy Key";
+          btn.classList.remove("copied");
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
